@@ -5,10 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../accessing keys/common.css" />
+    <link rel="stylesheet" href="../accessing keys/common.css" >
     <style>
       #navbar {
         margin-bottom: 50px;
+        
       }
     </style>
   </head>
@@ -34,19 +35,18 @@
 <script>
   //imgurl,name,role,companyLogo
   document
-    .querySelector("#investorForm")
-    .addEventListener("submit", investorsFun);
+    .querySelector("#investorForm").addEventListener("submit", investorsFun);
 
 
   var investorArr = JSON.parse(localStorage.getItem("investorsData"))||[]
 
-  // if(JSON.parse(localStorage.getItem("investorsData"))==null){
-  //   investorArr =[]
-  // }
-  // else{
-  //   investorArr=JSON.parse(localStorage.getItem("investorsData"))
-  // }
-  //     Array of objects
+  if(JSON.parse(localStorage.getItem("investorsData"))==null){
+    investorArr =[]
+  }
+  else{
+    investorArr=JSON.parse(localStorage.getItem("investorsData"))
+  }
+      Array of objects
   function investorsFun() {
     event.preventDefault();
 

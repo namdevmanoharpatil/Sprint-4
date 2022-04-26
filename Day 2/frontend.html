@@ -24,24 +24,48 @@
 </html>
 
 <script>
+    var  investorsData=[
+        {
+        avatar : 
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Vijay_Shekhar_Sharma_Paytm_96f52579b8.jpg", 
+        alt:"Vijay Shekhar Sharma" ,
+        name:"Vijay Shekhar Sharma",
+        position:"Founder & CEO",
+        logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/paytm_rect_06df45a24f.svg",
+        alt:"paytm logo"
+      },
+      {
+        avatar:
+        "https://masai-website-images.s3.ap-south-1.amazonaws.com/Rectangle_427_637d69bb57.png",
+         alt:"Kunal Shah",
+         name:"Kunal Shah",
+        position:"Founder",
+         logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/cred_0a47d7b4f8.png",
+         alt:"CRED logo" 
+        },
+        {
+            avatar:
+            "https://masai-website-images.s3.ap-south-1.amazonaws.com/amrish_rau_pine_labs_144e5e587c.jpg",
+            alt:"Amrish Rau",
+            name:"Amrish Rau",
+            position:"CEO",
+            logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/pine_labs_0aa2407434.png", 
+            alt:"Pine lags logo"
+        },
+        {
+            avatar:
+            "https://masai-website-images.s3.ap-south-1.amazonaws.com/Sampad_swain_Instamojo_f12bf6341e.jpg",
+             alt:"Sampad Swain",
+             name:"Sampad Swain",
+            position:"Co-Founder & CEO",
+             logo:"https://masai-website-images.s3.ap-south-1.amazonaws.com/instamojo_8763e704f7.png",
+             alt:"Instamojo logo" 
+            },
+        ]
+    
   var investorsArr = JSON.parse(localStorage.getItem("investorsData"));
   console.log(investorsArr);
 
 
 
 </script>
- 12  
-Local Storage/accessing keys/common.css
-@@ -0,0 +1,12 @@
-#navbar {
-  display: flex;
-  justify-content: space-around;
-  font-size: 28px;
-  background-color: rgb(61, 61, 158);
-  padding: 10px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
-}

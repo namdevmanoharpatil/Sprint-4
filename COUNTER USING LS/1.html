@@ -1,0 +1,102 @@
+var mensData = [
+  {
+    image_url:
+      "https://content.shop4reebok.com/static/Product-EX4296/reebok_EX4296_1.jpg.plp",
+    name: "MEN'S REEBOK RUNNING ROADMAP SHOES",
+    price: 1170,
+    strikedoffprice: 2599,
+  },
+  {
+    image_url:
+      "https://content.shop4reebok.com/static/Product-EX3921/reebok_EX3921_1.jpg.plp",
+    name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+    price: 699,
+    strikedoffprice: 999,
+  },
+  {
+    image_url:
+      "https://content.shop4reebok.com/static/Product-EX4160/reebok_EX4160_1.jpg.plp",
+    name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+    price: 945,
+    strikedoffprice: 2099,
+  },
+  {
+    image_url:
+      "https://content.shop4reebok.com/static/Product-EX3921/reebok_EX3921_1.jpg.plp",
+    name: "MEN'S REEBOK SWIM ARUBA FLIP SLIPPERS ",
+    price: 699,
+    strikedoffprice: 999,
+  },
+  {
+    image_url:
+      "https://content.shop4reebok.com/static/Product-EX4160/reebok_EX4160_1.jpg.plp",
+    name: " MEN'S REEBOK RUNNING AUSTIN SHOES",
+    price: 945,
+    strikedoffprice: 2099,
+  },
+
+];
+
+var array = JSON.parse(localStorage.getItem("cartItem")) || [];
+
+document.getElementById("prod").addEventListener("click", function(){
+    display(mensData)
+})
+
+document.getElementById("cart").addEventListener("click", function(){
+    display(array);
+})
+
+function display(array){
+    document.querySelector("#container").innerHTML="";
+    array.map(function (elem,index){
+        var box = document.createElement("div");
+        var image=document.createElement("img");
+        var name=document.createElement("p");
+        var price = document.createElement("h5");
+        var sPrice =document.createElement("h5");
+        var btn=document.createElement("button");
+        var btn2=document.createElement("button");
+        btn.innerText="Add to Cart";
+        // image.setAttribute("src", elem.image_url)
+        image.src=elem.image_url;
+        name.innerText=elem.name;
+        price.innerText=elem.price;
+        sPrice.innerText=elem.strikedoffprice;
+        sPrice.style.textDecoration="line-through"
+        btn2.innerText="Delete"
+    
+        btn.addEventListener("click",function(){
+            console.log(elem);
+            array.push(elem);
+            localStorage.setItem("cartItem", JSON.stringify(array));
+            console.log(array);
+            document.querySelector("#total").innerText=add(array);
+        });
+    
+        btn2.addEventListener("click",function(){
+            var arr = JSON.parse(localStorage.getItem("cartItem"));
+            arr.splice(index,1);
+            localStorage.setItem("cartItem", JSON.stringify(arr));
+            display(arr);
+        });
+        
+        box.append(image, name, price, sPrice,btn,btn2);
+    
+        document.querySelector("#container").append(box);
+        
+    });
+}
+
+
+function add(array){
+    
+    var total=array.reduce(function(sum, elem){
+        return sum+elem.price;
+    },0)
+
+    return total;
+}
+
+document.querySelector("#total").innerText=add(array);
+console.log(add(array));
